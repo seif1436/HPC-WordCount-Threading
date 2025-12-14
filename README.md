@@ -1,94 +1,50 @@
-\# 🚀 Word Count Performance Analysis using Multi-threading
+# 🚀 High-Performance Computing: Word Count Analysis
 
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Threading](https://img.shields.io/badge/Concurrency-Multi--Threading-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![Course](https://img.shields.io/badge/Course-HPC-blueviolet?style=for-the-badge)
 
-
-\## 📌 Project Overview
-
-This project benchmarks the performance difference between \*\*Serial\*\* and \*\*Parallel\*\* execution for a CPU-bound task (Word Count) using Python. It explores the impact of Python's \*\*Global Interpreter Lock (GIL)\*\* on multi-threading performance.
-
-
-
-This serves as \*\*Task 1\*\* for the High-Performance Computing (HPC) course.
-
-
-
-\## 👥 Team Members
-
-\* \*\*Seif El-Din Mohamed\*\*
-
-\* Mohamed Essam
-
-\* Mohamed Medhat
-
-\* Saeed Waled Saeed
-
-
-
-\*\*Supervised by:\*\* Dr. Hossam Reda Mohamed
-
-
-
-\## ⚙️ Tech Stack
-
-\* \*\*Language:\*\* Python 3.x
-
-\* \*\*Libraries:\*\* `threading`, `multiprocessing`, `collections`, `time`, `os`
-
-\* \*\*Tools:\*\* Jupyter Notebook, VS Code
-
-
-
-\## 📊 Results \& Analysis
-
-| Metric | Value |
-
-|--------|-------|
-
-| \*\*T\_serial\*\* | 0.1948 s |
-
-| \*\*T\_p1\*\* | 0.1841 s |
-
-| \*\*T\_pN (2 threads)\*\* | 0.1259 s |
-
-| \*\*Speedup\*\* | \*\*1.55\*\* |
-
-| \*\*Efficiency\*\* | \*\*0.77\*\* |
-
-
-
-\### 💡 Key Observations:
-
-1\. \*\*Speedup > 1:\*\* The parallel version achieved a speedup of \*\*1.55x\*\* using 2 threads, indicating better performance despite overhead.
-
-2\. \*\*Efficiency (77%):\*\* Resource utilization is high, but slight overhead exists due to thread creation and merging.
-
-3\. \*\*GIL Limitation:\*\* Python's GIL limits the true parallelism of CPU-bound tasks, preventing linear scalability with higher thread counts.
-
-
-
-\## 📂 Project Structure
-
-\* `src/create\_data.py`: Script to generate the dummy text dataset (approx 30MB).
-
-\* `src/WordCount\_Benchmark.ipynb`: The main benchmarking logic (Serial vs Parallel).
-
-\* `docs/Project\_Presentation.pdf`: Full presentation slides explaining the methodology and algorithms.
-
-
-
-\## 🚀 How to Run
-
-1\. Clone the repository.
-
-2\. Run `create\_data.py` to generate the dataset.
-
-3\. Open `WordCount\_Benchmark.ipynb` in VS Code or Jupyter.
-
-4\. Run all cells to see the benchmark results.
-
-
+> **A benchmarking study comparing Serial vs. Parallel execution for CPU-bound tasks in Python, analyzing the impact of the Global Interpreter Lock (GIL).**
 
 ---
 
-\*Created by Seif El-Din Mohamed - 2025\*
+## 📖 Table of Contents
+- [Project Overview](#-project-overview)
+- [Key Features](#-key-features)
+- [Project Architecture](#-project-architecture)
+- [Performance Metrics](#-performance-metrics-and-results)
+- [Discussion (The GIL Problem)](#-discussion-why-is-speedup-limited)
+- [Team Members](#-team-members)
 
+---
+
+## 📌 Project Overview
+This project implements a **Word Count** algorithm using two different approaches to measure performance scaling:
+1.  **Serial Execution:** Single-threaded processing.
+2.  **Parallel Execution:** Multi-threaded processing using Python's `threading` module with data chunking.
+
+The main objective is to analyze the trade-off between **parallelism overhead** and **execution speed** in a Python environment.
+
+---
+
+## 🌟 Key Features
+* **Data Generation:** Automated script to generate large-scale dummy text datasets (30MB+).
+* **Smart Chunking:** Algorithms to split data evenly across available threads.
+* **Benchmarking Engine:** Precise time measurement for Serial vs. Parallel execution.
+* **Metric Calculation:** Automatic computation of Speedup, Efficiency, and Scalability.
+
+---
+
+## 📂 Project Architecture
+
+```text
+HPC-WordCount-Threading/
+├── src/
+│   ├── WordCount_Benchmark.ipynb   # Main Logic & Analysis (Jupyter)
+│   └── create_data.py              # Dataset Generator Script
+├── docs/
+│   └── Project_Presentation.pdf    # Detailed Scientific Report
+├── data/
+│   └── wordcount_sample_2MB.txt    # Generated Dataset (excluded from repo)
+└── README.md                       # Documentation
